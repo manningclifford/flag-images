@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlagForward — Reimagine Australia's Future</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #09090b;
+            --bg-secondary: #18181b;
+            --bg-tertiary: #27272a;
+            --text-primary: #fafafa;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+            --accent: #3b82f6;
+            --accent-hover: #2563eb;
+            --accent-glow: rgba(59, 130, 246, 0.5);
+            --border: #27272a;
+            --border-hover: #3f3f46;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            min-height: 100vh;
+            color: var(--text-primary);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 48px;
+            background: rgba(9, 9, 11, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--text-primary);
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+            background: var(--bg-tertiary);
+        }
+
+        .nav-cta {
+            background: var(--accent) !important;
+            color: white !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--accent-hover) !important;
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 100px 24px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 600px;
+            background: radial-gradient(ellipse, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 32px;
+        }
+
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1.05;
+            max-width: 800px;
+            margin: 0 auto 24px;
+            letter-spacing: -0.03em;
+        }
+
+        .hero h1 .gradient {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 560px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Main App */
+        .app-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px 100px;
+        }
+
+        .app-grid {
+            display: grid;
+            grid-template-columns: 1fr 440px;
+            gap: 32px;
+            align-items: start;
+        }
+
+        @media (max-width: 1100px) {
+            .app-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Flag Preview Card */
+        .preview-card {
+            background: var(--bg-secondary);
+            border-radius: 24px;
+            padding: 32px;
+            border: 1px solid var(--border);
+        }
+
+        .preview-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .preview-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+        }
+
+        .preview-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .icon-btn {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--border);
+            background: var(--bg-primary);
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            transition: all 0.2s;
+            font-size: 18px;
+        }
+
+        .icon-btn:hover {
+            border-color: var(--border-hover);
+            color: var(--text-primary);
+            background: var(--bg-tertiary);
+        }
+
+        .flag-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 2 / 1;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 0 0 1px rgba(255,255,255,0.1), 0 20px 50px -20px rgba(0,0,0,0.5);
+        }
+
+        .flag-base {
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+        }
+
+        .canton {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50.5%;
+            height: 50.5%;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .canton::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 2px solid transparent;
+            transition: border-color 0.2s;
+            pointer-events: none;
+        }
+
+        .canton:hover::after {
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        .canton img {
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+        }
+
+        .canton img.photo {
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .canton-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: #fafafa;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            text-align: center;
+            padding: 20px;
+            transition: all 0.2s;
+        }
+
+        .canton-placeholder:hover {
+            background: #f4f4f5;
+        }
+
+        .canton-placeholder .question-mark {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #d4d4d8;
+            transition: all 0.2s;
+        }
+
+        .canton-placeholder:hover .question-mark {
+            color: var(--accent);
+            transform: scale(1.05);
+        }
+
+        .flag-label {
+            margin-top: 24px;
+            padding: 20px;
+            background: var(--bg-primary);
+            border-radius: 14px;
+            border: 1px solid var(--border);
+        }
+
+        .flag-label-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .flag-label-sub {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        /* Selection Panel */
+        .selection-panel {
+            background: var(--bg-secondary);
+            border-radius: 24px;
+            padding: 28px;
+            border: 1px solid var(--border);
+            max-height: calc(100vh - 180px);
+            overflow-y: auto;
+        }
+
+        .selection-panel::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .selection-panel::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .selection-panel::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 3px;
+        }
+
+        .panel-header {
+            margin-bottom: 28px;
+        }
+
+        .panel-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+
+        .panel-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .category {
+            margin-bottom: 28px;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 14px;
+        }
+
+        .category-title {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .category-count {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            background: var(--bg-tertiary);
+            padding: 4px 8px;
+            border-radius: 6px;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .option {
+            aspect-ratio: 3 / 2;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid var(--border);
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            background: var(--bg-tertiary);
+        }
+
+        .option:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px -10px var(--accent-glow);
+        }
+
+        .option.selected {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-glow);
+        }
+
+        .option.selected::before {
+            content: '✓';
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 20px;
+            height: 20px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            font-weight: bold;
+        }
+
+        .option img {
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+        }
+
+        .option.photo img {
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .option-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            color: white;
+            font-size: 0.65rem;
+            padding: 20px 8px 8px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        /* Buttons */
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 24px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 16px 24px;
+            border: none;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px -10px var(--accent-glow);
+        }
+
+        .btn-secondary {
+            background: var(--bg-tertiary);
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--border);
+            color: var(--text-primary);
+        }
+
+        /* Upload */
+        .upload-zone {
+            margin-top: 20px;
+            border: 2px dashed var(--border);
+            border-radius: 14px;
+            padding: 28px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .upload-zone:hover {
+            border-color: var(--accent);
+            background: rgba(59, 130, 246, 0.05);
+        }
+
+        .upload-zone input {
+            display: none;
+        }
+
+        .upload-icon {
+            width: 52px;
+            height: 52px;
+            background: var(--bg-tertiary);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 14px;
+            color: var(--text-muted);
+        }
+
+        .upload-text {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+
+        .upload-hint {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            padding: 40px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-left {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+
+        @media (max-width: 768px) {
+            .nav { padding: 16px 20px; }
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero { padding: 60px 24px 40px; }
+            footer {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="logo">
+            <div class="logo-icon">◇</div>
+            FlagForward
+        </div>
+        <div class="nav-links">
+            <a href="#">About</a>
+            <a href="#">Gallery</a>
+            <a href="#">History</a>
+            <a href="#" class="nav-cta">Share Design</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="badge">
+            <span class="badge-dot"></span>
+            Interactive Design Tool
+        </div>
+        <h1>Reimagine what <span class="gradient">Australia</span> could look like</h1>
+        <p>An interactive exploration of alternative flag designs that reflect our nation's evolving identity, heritage, and values.</p>
+    </section>
+
+    <div class="app-container">
+        <div class="app-grid">
+            <div class="preview-card">
+                <div class="preview-header">
+                    <span class="preview-title">Live Preview</span>
+                    <div class="preview-actions">
+                        <button class="icon-btn" onclick="resetFlag()" title="Reset">↺</button>
+                        <button class="icon-btn" onclick="downloadFlag()" title="Download">↓</button>
+                    </div>
+                </div>
+
+                <div class="flag-container" id="flagContainer">
+                    <img src="australia-full.png" class="flag-base" alt="Australian Flag">
+                    <div class="canton" id="canton" onclick="randomizeFlag()">
+                        <div class="canton-placeholder" id="cantonPlaceholder">
+                            <span class="question-mark">?</span>
+                            <span>Click to randomize</span>
+                        </div>
+                        <img id="cantonImage" style="display: none;" alt="Canton replacement">
+                    </div>
+                </div>
+
+                <div class="flag-label">
+                    <div class="flag-label-text" id="flagLabel">Australian Flag</div>
+                    <div class="flag-label-sub">Click the canton to explore alternatives</div>
+                </div>
+            </div>
+
+            <div class="selection-panel">
+                <div class="panel-header">
+                    <h2 class="panel-title">Choose a Symbol</h2>
+                    <p class="panel-subtitle">Select an image to replace the canton</p>
+                </div>
+
+                <div class="category">
+                    <div class="category-header">
+                        <span class="category-title">Indigenous Flags</span>
+                        <span class="category-count" id="indigenousCount"></span>
+                    </div>
+                    <div class="options-grid" id="indigenousOptions"></div>
+                </div>
+
+                <div class="category">
+                    <div class="category-header">
+                        <span class="category-title">Other Flags</span>
+                        <span class="category-count" id="ausCount"></span>
+                    </div>
+                    <div class="options-grid" id="ausOptions"></div>
+                </div>
+
+                <div class="category">
+                    <div class="category-header">
+                        <span class="category-title">Notable Australians</span>
+                        <span class="category-count" id="peopleCount"></span>
+                    </div>
+                    <div class="options-grid" id="peopleOptions"></div>
+                </div>
+
+                <div class="category">
+                    <div class="category-header">
+                        <span class="category-title">Country Flags</span>
+                        <span class="category-count" id="countryCount"></span>
+                    </div>
+                    <div class="options-grid" id="countryOptions"></div>
+                </div>
+
+                <div class="category">
+                    <div class="category-header">
+                        <span class="category-title">Landmarks</span>
+                        <span class="category-count" id="symbolCount"></span>
+                    </div>
+                    <div class="options-grid" id="symbolOptions"></div>
+                </div>
+
+                <label class="upload-zone" for="customImage">
+                    <div class="upload-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
+                        </svg>
+                    </div>
+                    <div class="upload-text">Upload your own image</div>
+                    <div class="upload-hint">PNG, JPG or GIF up to 5MB</div>
+                    <input type="file" id="customImage" accept="image/*">
+                </label>
+
+                <div class="btn-group">
+                    <button class="btn btn-secondary" onclick="resetFlag()">Reset</button>
+                    <button class="btn btn-primary" onclick="downloadFlag()">
+                        <span>Download</span>
+                        <span>↓</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-left">© 2024 FlagForward. A creative exploration of Australian identity.</div>
+        <div class="footer-links">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Contact</a>
+        </div>
+    </footer>
+
+    <script>
+        const options = {
+            indigenous: [
+                { name: 'Aboriginal Flag', src: 'aboriginal-wide.svg' },
+                { name: 'Torres Strait Islander', src: 'torres-strait.svg' }
+            ],
+            australian: [
+                { name: 'Eureka Flag', src: 'eureka.svg' },
+                { name: 'Boxing Kangaroo', src: 'boxing-kangaroo.svg' },
+                { name: 'Pride Flag', src: 'pride.png' }
+            ],
+            countries: [
+                { name: 'New Zealand', src: 'new-zealand.png' },
+                { name: 'Japan', src: 'japan.png' },
+                { name: 'China', src: 'china.png' },
+                { name: 'India', src: 'india.png' },
+                { name: 'USA', src: 'usa.png' },
+                { name: 'Indonesia', src: 'indonesia.png' },
+                { name: 'Vietnam', src: 'vietnam.png' },
+                { name: 'Philippines', src: 'philippines.png' },
+                { name: 'South Korea', src: 'south-korea.png' },
+                { name: 'UK', src: 'uk.png' },
+                { name: 'Ireland', src: 'ireland.png' },
+                { name: 'Germany', src: 'germany.png' },
+                { name: 'Italy', src: 'italy.png' },
+                { name: 'France', src: 'france.png' },
+                { name: 'Greece', src: 'greece.png' },
+                { name: 'Canada', src: 'canada.png' },
+                { name: 'South Africa', src: 'south-africa.png' },
+                { name: 'Malaysia', src: 'malaysia.png' },
+                { name: 'Singapore', src: 'singapore.png' },
+                { name: 'Thailand', src: 'thailand.png' },
+                { name: 'Wales', src: 'wales.png' }
+            ],
+            people: [
+                { name: 'Cathy Freeman', src: 'cathy-freeman.jpg' },
+                { name: 'Neville Bonner', src: 'neville-bonner.jpg' },
+                { name: 'Patty Mills', src: 'patty-mills.jpg' },
+                { name: 'Adam Goodes', src: 'adam-goodes.jpg' },
+                { name: 'Travis Head', src: 'travis-head.jpg' },
+                { name: 'Ash Barty', src: 'ash-barty.jpg' },
+                { name: 'Pat Cummins', src: 'pat-cummins.jpg' },
+                { name: 'Steve Smith', src: 'steve-smith.jpg' },
+                { name: 'Ian Thorpe', src: 'ian-thorpe.jpg' },
+                { name: 'Lleyton Hewitt', src: 'lleyton-hewitt.jpg' },
+                { name: 'Eddie Mabo', src: 'eddie-mabo.jpg' },
+                { name: 'Steve Irwin', src: 'steve-irwin.jpg' },
+                { name: 'Hugh Jackman', src: 'hugh-jackman.jpg' },
+                { name: 'Nicole Kidman', src: 'nicole-kidman.jpg' },
+                { name: 'Chris Hemsworth', src: 'chris-hemsworth.jpg' },
+                { name: 'Cate Blanchett', src: 'cate-blanchett.jpg' },
+                { name: 'Margot Robbie', src: 'margot-robbie.jpg' },
+                { name: 'Kylie Minogue', src: 'kylie-minogue.jpg' }
+            ],
+            symbols: [
+                { name: 'Uluru', src: 'uluru.jpg' },
+                { name: 'Sydney Opera House', src: 'sydney-opera-house.jpg' }
+            ]
+        };
+
+        let currentSelection = null;
+
+        function renderOptions() {
+            renderCategory('indigenousOptions', options.indigenous, 'indigenousCount');
+            renderCategory('ausOptions', options.australian, 'ausCount');
+            renderCategory('peopleOptions', options.people, 'peopleCount', true);
+            renderCategory('countryOptions', options.countries, 'countryCount');
+            renderCategory('symbolOptions', options.symbols, 'symbolCount', true);
+        }
+
+        function renderCategory(containerId, items, countId, isPhoto = false) {
+            const container = document.getElementById(containerId);
+            const countEl = document.getElementById(countId);
+            container.innerHTML = '';
+
+            let validCount = 0;
+
+            items.forEach((item) => {
+                const div = document.createElement('div');
+                div.className = isPhoto ? 'option photo' : 'option';
+                div.onclick = () => selectOption(item, div);
+
+                const img = document.createElement('img');
+                img.src = item.src;
+                img.alt = item.name;
+                img.onload = () => { validCount++; countEl.textContent = validCount; };
+                img.onerror = () => { div.style.display = 'none'; };
+
+                const label = document.createElement('div');
+                label.className = 'option-label';
+                label.textContent = item.name;
+
+                div.appendChild(img);
+                div.appendChild(label);
+                container.appendChild(div);
+            });
+        }
+
+        function selectOption(item, element) {
+            document.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+            element.classList.add('selected');
+
+            currentSelection = item;
+
+            const placeholder = document.getElementById('cantonPlaceholder');
+            const cantonImg = document.getElementById('cantonImage');
+            const label = document.getElementById('flagLabel');
+
+            placeholder.style.display = 'none';
+            cantonImg.style.display = 'block';
+            cantonImg.src = item.src;
+
+            // Apply photo cropping for people/landmarks (jpg files)
+            if (item.src.endsWith('.jpg')) {
+                cantonImg.classList.add('photo');
+            } else {
+                cantonImg.classList.remove('photo');
+            }
+
+            label.textContent = `With ${item.name}`;
+            document.querySelector('.flag-label-sub').textContent = 'Click the canton to randomize';
+        }
+
+        function resetFlag() {
+            document.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+            currentSelection = null;
+
+            const placeholder = document.getElementById('cantonPlaceholder');
+            const cantonImg = document.getElementById('cantonImage');
+            const label = document.getElementById('flagLabel');
+
+            placeholder.style.display = 'flex';
+            cantonImg.style.display = 'none';
+            label.textContent = 'Australian Flag';
+            document.querySelector('.flag-label-sub').textContent = 'Click the canton to explore alternatives';
+        }
+
+        function randomizeFlag() {
+            const allOptions = [
+                ...options.indigenous,
+                ...options.australian,
+                ...options.countries,
+                ...options.people,
+                ...options.symbols
+            ];
+
+            const randomItem = allOptions[Math.floor(Math.random() * allOptions.length)];
+
+            document.querySelectorAll('.option').forEach(opt => {
+                opt.classList.remove('selected');
+                const img = opt.querySelector('img');
+                if (img && img.src.endsWith(randomItem.src)) {
+                    opt.classList.add('selected');
+                }
+            });
+
+            currentSelection = randomItem;
+
+            const placeholder = document.getElementById('cantonPlaceholder');
+            const cantonImg = document.getElementById('cantonImage');
+            const label = document.getElementById('flagLabel');
+
+            placeholder.style.display = 'none';
+            cantonImg.style.display = 'block';
+            cantonImg.src = randomItem.src;
+
+            // Apply photo cropping for people/landmarks (jpg files)
+            if (randomItem.src.endsWith('.jpg')) {
+                cantonImg.classList.add('photo');
+            } else {
+                cantonImg.classList.remove('photo');
+            }
+
+            label.textContent = `With ${randomItem.name}`;
+            document.querySelector('.flag-label-sub').textContent = 'Click the canton to randomize again';
+        }
+
+        document.getElementById('customImage').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const placeholder = document.getElementById('cantonPlaceholder');
+                    const cantonImg = document.getElementById('cantonImage');
+                    const label = document.getElementById('flagLabel');
+
+                    placeholder.style.display = 'none';
+                    cantonImg.style.display = 'block';
+                    cantonImg.src = event.target.result;
+                    cantonImg.classList.add('photo'); // Custom uploads use cover/crop
+                    label.textContent = 'With Custom Image';
+                    document.querySelector('.flag-label-sub').textContent = 'Your uploaded design';
+
+                    currentSelection = { name: 'Custom Image', dataUrl: event.target.result };
+
+                    document.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        function downloadFlag() {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+
+            canvas.width = 1200;
+            canvas.height = 600;
+
+            const baseFlag = new Image();
+            baseFlag.onload = function() {
+                ctx.drawImage(baseFlag, 0, 0, 1200, 600);
+
+                const cantonImg = document.getElementById('cantonImage');
+                if (cantonImg.style.display !== 'none') {
+                    const img = new Image();
+                    img.crossOrigin = 'anonymous';
+                    img.onload = function() {
+                        const cantonWidth = 606;  // 50.5% of 1200
+                        const cantonHeight = 303; // 50.5% of 600
+
+                        // Check if it's a photo that needs cropping
+                        const isPhoto = cantonImg.classList.contains('photo');
+
+                        if (isPhoto) {
+                            // object-fit: cover with object-position: top
+                            const imgRatio = img.width / img.height;
+                            const cantonRatio = cantonWidth / cantonHeight;
+
+                            let sx, sy, sw, sh;
+                            if (imgRatio > cantonRatio) {
+                                // Image is wider - crop sides
+                                sh = img.height;
+                                sw = sh * cantonRatio;
+                                sx = (img.width - sw) / 2;
+                                sy = 0; // top aligned
+                            } else {
+                                // Image is taller - crop bottom
+                                sw = img.width;
+                                sh = sw / cantonRatio;
+                                sx = 0;
+                                sy = 0; // top aligned
+                            }
+                            ctx.drawImage(img, sx, sy, sw, sh, 0, 0, cantonWidth, cantonHeight);
+                        } else {
+                            // object-fit: fill - stretch to fit
+                            ctx.drawImage(img, 0, 0, cantonWidth, cantonHeight);
+                        }
+                        triggerDownload(canvas);
+                    };
+                    img.onerror = function() {
+                        triggerDownload(canvas);
+                    };
+                    img.src = cantonImg.src;
+                } else {
+                    triggerDownload(canvas);
+                }
+            };
+            baseFlag.src = 'australia-full.png';
+        }
+
+        function triggerDownload(canvas) {
+            const link = document.createElement('a');
+            link.download = 'flagforward-design.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+
+        renderOptions();
+    </script>
+</body>
+</html>

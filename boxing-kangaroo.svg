@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600">
+  <!-- Boxing Kangaroo Flag - Green background with gold kangaroo -->
+  <rect width="1200" height="600" fill="#00843D"/>
+
+  <!-- Gold kangaroo silhouette with boxing stance -->
+  <g transform="translate(600, 300)" fill="#FFD700">
+    <!-- Body -->
+    <ellipse cx="0" cy="50" rx="100" ry="130"/>
+    <!-- Tail -->
+    <path d="M-80,100 Q-200,180 -250,50 Q-240,40 -230,50 Q-180,160 -70,90" fill="#FFD700"/>
+    <!-- Head -->
+    <ellipse cx="70" cy="-100" rx="55" ry="45"/>
+    <!-- Ear left -->
+    <ellipse cx="40" cy="-160" rx="15" ry="35"/>
+    <!-- Ear right -->
+    <ellipse cx="90" cy="-160" rx="15" ry="35"/>
+    <!-- Snout -->
+    <ellipse cx="120" cy="-85" rx="30" ry="20"/>
+    <!-- Back leg -->
+    <ellipse cx="-30" cy="200" rx="40" ry="60" transform="rotate(-20 -30 200)"/>
+    <!-- Foot -->
+    <ellipse cx="-80" cy="250" rx="70" ry="25" transform="rotate(-10 -80 250)"/>
+    <!-- Front arm (boxing) upper -->
+    <rect x="50" y="-50" width="30" height="80" rx="15" transform="rotate(-45 65 -10)"/>
+    <!-- Front arm (boxing) lower reaching forward -->
+    <rect x="100" y="-80" width="25" height="70" rx="12" transform="rotate(-20 112 -45)"/>
+  </g>
+
+  <!-- Red boxing gloves -->
+  <g fill="#CC0000">
+    <!-- Left glove (blocking) -->
+    <ellipse cx="520" cy="200" rx="35" ry="40"/>
+    <!-- Right glove (punching forward) -->
+    <ellipse cx="720" cy="180" rx="40" ry="35"/>
+  </g>
+</svg>

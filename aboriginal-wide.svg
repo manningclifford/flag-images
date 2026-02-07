@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600">
+  <!-- Extended Aboriginal flag for 2:1 ratio canton -->
+  <!-- Black top half -->
+  <rect x="0" y="0" width="1200" height="300" fill="#000000"/>
+  <!-- Red bottom half -->
+  <rect x="0" y="300" width="1200" height="300" fill="#CC0000"/>
+  <!-- Yellow sun in center -->
+  <circle cx="600" cy="300" r="150" fill="#FFCC00"/>
+</svg>

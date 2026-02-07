@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600">
+  <!-- Blue background - Australian flag blue -->
+  <rect width="1200" height="600" fill="#00008B"/>
+
+  <!-- Commonwealth Star (7-pointed) - bottom left under canton area -->
+  <g fill="white" transform="translate(216, 450)">
+    <polygon points="0,-54 12,-18 50,-18 20,6 32,42 0,22 -32,42 -20,6 -50,-18 -12,-18"/>
+  </g>
+
+  <!-- Southern Cross -->
+  <!-- Alpha Crucis (bottom star) -->
+  <g fill="white" transform="translate(900, 480)">
+    <polygon points="0,-36 8,-12 34,-12 14,4 22,28 0,14 -22,28 -14,4 -34,-12 -8,-12"/>
+  </g>
+
+  <!-- Beta Crucis (left star) -->
+  <g fill="white" transform="translate(780, 300)">
+    <polygon points="0,-36 8,-12 34,-12 14,4 22,28 0,14 -22,28 -14,4 -34,-12 -8,-12"/>
+  </g>
+
+  <!-- Gamma Crucis (top star) -->
+  <g fill="white" transform="translate(900, 120)">
+    <polygon points="0,-36 8,-12 34,-12 14,4 22,28 0,14 -22,28 -14,4 -34,-12 -8,-12"/>
+  </g>
+
+  <!-- Delta Crucis (right star) -->
+  <g fill="white" transform="translate(1020, 300)">
+    <polygon points="0,-30 7,-10 28,-10 12,4 18,24 0,12 -18,24 -12,4 -28,-10 -7,-10"/>
+  </g>
+
+  <!-- Epsilon Crucis (small center star - 5 pointed) -->
+  <g fill="white" transform="translate(870, 360)">
+    <polygon points="0,-18 4,-6 17,-6 7,2 11,14 0,7 -11,14 -7,2 -17,-6 -4,-6"/>
+  </g>
+</svg>

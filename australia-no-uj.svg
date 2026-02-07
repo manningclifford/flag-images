@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10080 5040" width="1200" height="600">
+  <!-- Australian flag without Union Jack - based on official specifications -->
+  <!-- Blue background -->
+  <rect width="10080" height="5040" fill="#00008B"/>
+
+  <!-- Commonwealth Star (7-pointed, 14 points total) under canton -->
+  <g id="commonwealth-star" fill="white">
+    <path d="M1512,3780 L1632,4140 L1980,4188 L1728,4404 L1800,4752 L1512,4536 L1224,4752 L1296,4404 L1044,4188 L1392,4140 Z"/>
+  </g>
+
+  <!-- Southern Cross - 5 stars -->
+  <!-- Alpha Crucis (bottom, 7-pointed) -->
+  <g fill="white" transform="translate(7560,4200)">
+    <path d="M0,-252 L54,-78 L234,-78 L90,30 L144,204 L0,96 L-144,204 L-90,30 L-234,-78 L-54,-78 Z"/>
+  </g>
+
+  <!-- Beta Crucis (left, 7-pointed) -->
+  <g fill="white" transform="translate(6300,2520)">
+    <path d="M0,-252 L54,-78 L234,-78 L90,30 L144,204 L0,96 L-144,204 L-90,30 L-234,-78 L-54,-78 Z"/>
+  </g>
+
+  <!-- Gamma Crucis (top, 7-pointed) -->
+  <g fill="white" transform="translate(7560,840)">
+    <path d="M0,-252 L54,-78 L234,-78 L90,30 L144,204 L0,96 L-144,204 L-90,30 L-234,-78 L-54,-78 Z"/>
+  </g>
+
+  <!-- Delta Crucis (right, 7-pointed, smaller) -->
+  <g fill="white" transform="translate(8820,2520)">
+    <path d="M0,-180 L39,-56 L168,-56 L65,22 L104,146 L0,69 L-104,146 L-65,22 L-168,-56 L-39,-56 Z"/>
+  </g>
+
+  <!-- Epsilon Crucis (center, 5-pointed, smallest) -->
+  <g fill="white" transform="translate(7560,3108)">
+    <path d="M0,-126 L29,-39 L120,-39 L48,15 L77,102 L0,48 L-77,102 L-48,15 L-120,-39 L-29,-39 Z"/>
+  </g>
+</svg>
