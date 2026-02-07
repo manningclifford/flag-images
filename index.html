@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FlagForward — Reimagine Australia's Future</title>
+    <title>Sack the Jack!</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-primary: #09090b;
-            --bg-secondary: #18181b;
-            --bg-tertiary: #27272a;
-            --text-primary: #fafafa;
-            --text-secondary: #a1a1aa;
-            --text-muted: #71717a;
-            --accent: #3b82f6;
-            --accent-hover: #2563eb;
-            --accent-glow: rgba(59, 130, 246, 0.5);
-            --border: #27272a;
-            --border-hover: #3f3f46;
+            --bg-primary: #ffffcc;
+            --bg-secondary: #fff;
+            --bg-tertiary: #e0e0ff;
+            --text-primary: #000080;
+            --text-secondary: #333;
+            --text-muted: #666;
+            --accent: #ff6600;
+            --accent-hover: #ff3300;
+            --accent-glow: #ffcc00;
+            --border: #000080;
+            --border-hover: #0000ff;
         }
 
         * {
@@ -29,22 +29,20 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg-primary);
+            font-family: 'Comic Sans MS', 'Chalkboard', cursive, sans-serif;
+            background: #ffffcc url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><rect fill="%23ffffcc" width="20" height="20"/><circle fill="%23ffff99" cx="10" cy="10" r="2"/></svg>');
             min-height: 100vh;
             color: var(--text-primary);
-            -webkit-font-smoothing: antialiased;
         }
 
         /* Navigation */
         .nav {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            padding: 16px 48px;
-            background: rgba(9, 9, 11, 0.8);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
+            padding: 10px;
+            background: linear-gradient(to bottom, #0000cc, #000080);
+            border-bottom: 4px ridge #gold;
             position: sticky;
             top: 0;
             z-index: 100;
@@ -53,137 +51,68 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-family: 'Space Grotesk', sans-serif;
+            gap: 8px;
+            font-family: 'Comic Sans MS', cursive;
             font-weight: 700;
-            font-size: 1.25rem;
-            color: var(--text-primary);
+            font-size: 1.5rem;
+            color: #ffff00;
+            text-shadow: 2px 2px #000;
         }
 
         .logo-icon {
-            width: 36px;
-            height: 36px;
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            border-radius: 10px;
+            width: 40px;
+            height: 40px;
+            background: #ffcc00;
+            border: 3px outset #ffff00;
+            border-radius: 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 18px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 8px;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.875rem;
-            font-weight: 500;
-            padding: 8px 16px;
-            border-radius: 8px;
-            transition: all 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: var(--text-primary);
-            background: var(--bg-tertiary);
-        }
-
-        .nav-cta {
-            background: var(--accent) !important;
-            color: white !important;
-        }
-
-        .nav-cta:hover {
-            background: var(--accent-hover) !important;
+            font-size: 20px;
         }
 
         /* Hero */
         .hero {
             text-align: center;
-            padding: 100px 24px 80px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 800px;
-            height: 600px;
-            background: radial-gradient(ellipse, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            color: var(--text-secondary);
-            padding: 8px 16px;
-            border-radius: 100px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            margin-bottom: 32px;
-        }
-
-        .badge-dot {
-            width: 8px;
-            height: 8px;
-            background: #22c55e;
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
+            padding: 30px 24px 20px;
+            background: linear-gradient(to bottom, #99ccff, #ffffff);
+            border-bottom: 3px dashed #ff6600;
         }
 
         .hero h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 4rem;
+            font-family: 'Comic Sans MS', cursive;
+            font-size: 2.5rem;
             font-weight: 700;
-            line-height: 1.05;
-            max-width: 800px;
-            margin: 0 auto 24px;
-            letter-spacing: -0.03em;
+            color: #cc0000;
+            text-shadow: 2px 2px #ffcc00;
+            margin: 10px auto;
         }
 
         .hero h1 .gradient {
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #009900;
+            background: none;
+            -webkit-text-fill-color: #009900;
         }
 
         .hero p {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            max-width: 560px;
+            font-size: 1rem;
+            color: #333;
+            max-width: 600px;
             margin: 0 auto;
-            line-height: 1.7;
+            line-height: 1.5;
         }
 
         /* Main App */
         .app-container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 24px 100px;
+            padding: 20px;
         }
 
         .app-grid {
             display: grid;
-            grid-template-columns: 1fr 440px;
-            gap: 32px;
+            grid-template-columns: 1fr 380px;
+            gap: 20px;
             align-items: start;
         }
 
@@ -195,60 +124,62 @@
 
         /* Flag Preview Card */
         .preview-card {
-            background: var(--bg-secondary);
-            border-radius: 24px;
-            padding: 32px;
-            border: 1px solid var(--border);
+            background: #ffffff;
+            border: 3px outset #999;
+            padding: 15px;
+            box-shadow: 5px 5px 0 #666;
         }
 
         .preview-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 24px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #000080;
+            padding-bottom: 8px;
         }
 
         .preview-title {
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--text-muted);
+            font-size: 1rem;
+            font-weight: 700;
+            color: #000080;
         }
 
         .preview-actions {
             display: flex;
-            gap: 8px;
+            gap: 5px;
         }
 
         .icon-btn {
-            width: 40px;
-            height: 40px;
-            border: 1px solid var(--border);
-            background: var(--bg-primary);
-            border-radius: 10px;
+            width: 35px;
+            height: 35px;
+            border: 3px outset #ccc;
+            background: linear-gradient(to bottom, #f0f0f0, #c0c0c0);
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--text-secondary);
-            transition: all 0.2s;
-            font-size: 18px;
+            color: #000;
+            font-size: 16px;
+            font-weight: bold;
         }
 
         .icon-btn:hover {
-            border-color: var(--border-hover);
-            color: var(--text-primary);
-            background: var(--bg-tertiary);
+            border-style: inset;
+        }
+
+        .icon-btn:active {
+            border-style: inset;
+            background: #a0a0a0;
         }
 
         .flag-container {
             position: relative;
             width: 100%;
             aspect-ratio: 2 / 1;
-            border-radius: 16px;
+            border: 4px solid #000;
             overflow: hidden;
-            box-shadow: 0 0 0 1px rgba(255,255,255,0.1), 0 20px 50px -20px rgba(0,0,0,0.5);
+            box-shadow: 4px 4px 0 #333;
         }
 
         .flag-base {
@@ -257,28 +188,30 @@
             object-fit: fill;
         }
 
+        .union-jack-cover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 52.5%;
+            height: 52.5%;
+            background: #012169;
+            z-index: 1;
+        }
+
         .canton {
             position: absolute;
             top: 0;
             left: 0;
-            width: 50.5%;
-            height: 50.5%;
+            width: 50%;
+            height: 50%;
             overflow: hidden;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 2;
         }
 
-        .canton::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border: 2px solid transparent;
-            transition: border-color 0.2s;
-            pointer-events: none;
-        }
-
-        .canton:hover::after {
-            border-color: rgba(255,255,255,0.3);
+        .canton:hover {
+            outline: 3px dashed #ff0000;
         }
 
         .canton img {
@@ -289,7 +222,109 @@
 
         .canton img.photo {
             object-fit: cover;
-            object-position: top;
+            object-position: center center;
+            height: 100%;
+            width: auto;
+            min-height: 100%;
+        }
+
+        .canton img.logo {
+            object-fit: contain;
+            object-position: center;
+            background: #012169;
+            padding: 10%;
+        }
+
+        .option.logo img {
+            object-fit: contain;
+            object-position: center;
+            background: var(--bg-tertiary);
+            padding: 8px;
+        }
+
+        /* Adjustment Controls */
+        .adjust-panel {
+            margin-top: 15px;
+            padding: 10px;
+            background: #ffffcc;
+            border: 2px solid #000080;
+            display: none;
+        }
+
+        .adjust-panel.visible {
+            display: block;
+        }
+
+        .adjust-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #cc0000;
+            margin-bottom: 10px;
+            font-family: 'Comic Sans MS', cursive;
+        }
+
+        .adjust-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .adjust-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .adjust-label {
+            font-size: 0.8rem;
+            color: #000080;
+            width: 60px;
+            flex-shrink: 0;
+            font-weight: 700;
+        }
+
+        .adjust-slider {
+            flex: 1;
+            -webkit-appearance: none;
+            appearance: none;
+            height: 12px;
+            background: linear-gradient(to bottom, #999, #ccc);
+            border: 2px inset #999;
+            outline: none;
+        }
+
+        .adjust-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 16px;
+            height: 20px;
+            background: linear-gradient(to bottom, #f0f0f0, #a0a0a0);
+            border: 2px outset #ccc;
+            cursor: pointer;
+        }
+
+        .adjust-value {
+            font-size: 0.8rem;
+            color: #000;
+            width: 40px;
+            text-align: right;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+        }
+
+        .adjust-reset {
+            margin-top: 10px;
+            padding: 6px 12px;
+            background: linear-gradient(to bottom, #f0f0f0, #c0c0c0);
+            border: 2px outset #ccc;
+            color: #000;
+            font-size: 0.8rem;
+            cursor: pointer;
+            font-family: 'Comic Sans MS', cursive;
+            font-weight: 700;
+        }
+
+        .adjust-reset:active {
+            border-style: inset;
         }
 
         .canton-placeholder {
@@ -299,164 +334,151 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            background: #fafafa;
-            color: var(--text-muted);
-            font-size: 0.85rem;
+            gap: 5px;
+            background: #ccccff;
+            color: #000080;
+            font-size: 0.9rem;
             text-align: center;
-            padding: 20px;
-            transition: all 0.2s;
+            padding: 10px;
+            border: 2px dashed #000080;
         }
 
         .canton-placeholder:hover {
-            background: #f4f4f5;
+            background: #aaaaff;
         }
 
         .canton-placeholder .question-mark {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 3.5rem;
+            font-family: 'Comic Sans MS', cursive;
+            font-size: 3rem;
             font-weight: 700;
-            color: #d4d4d8;
-            transition: all 0.2s;
-        }
-
-        .canton-placeholder:hover .question-mark {
-            color: var(--accent);
-            transform: scale(1.05);
+            color: #ff0000;
         }
 
         .flag-label {
-            margin-top: 24px;
-            padding: 20px;
-            background: var(--bg-primary);
-            border-radius: 14px;
-            border: 1px solid var(--border);
+            margin-top: 15px;
+            padding: 10px;
+            background: #ffffcc;
+            border: 2px solid #000080;
         }
 
         .flag-label-text {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 600;
-            font-size: 1.1rem;
-            color: var(--text-primary);
-            margin-bottom: 4px;
+            font-family: 'Comic Sans MS', cursive;
+            font-weight: 700;
+            font-size: 1rem;
+            color: #cc0000;
         }
 
         .flag-label-sub {
-            font-size: 0.875rem;
-            color: var(--text-muted);
+            font-size: 0.8rem;
+            color: #333;
         }
 
         /* Selection Panel */
         .selection-panel {
-            background: var(--bg-secondary);
-            border-radius: 24px;
-            padding: 28px;
-            border: 1px solid var(--border);
+            background: #ffffff;
+            border: 3px outset #999;
+            padding: 15px;
             max-height: calc(100vh - 180px);
             overflow-y: auto;
+            box-shadow: 5px 5px 0 #666;
         }
 
         .selection-panel::-webkit-scrollbar {
-            width: 6px;
+            width: 16px;
         }
 
         .selection-panel::-webkit-scrollbar-track {
-            background: transparent;
+            background: #c0c0c0;
+            border: 1px inset #999;
         }
 
         .selection-panel::-webkit-scrollbar-thumb {
-            background: var(--border);
-            border-radius: 3px;
+            background: linear-gradient(to right, #e0e0e0, #a0a0a0);
+            border: 2px outset #ccc;
         }
 
         .panel-header {
-            margin-bottom: 28px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #000080;
+            padding-bottom: 10px;
         }
 
         .panel-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.5rem;
+            font-family: 'Comic Sans MS', cursive;
+            font-size: 1.3rem;
             font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 6px;
+            color: #cc0000;
         }
 
         .panel-subtitle {
-            font-size: 0.9rem;
-            color: var(--text-muted);
+            font-size: 0.85rem;
+            color: #666;
         }
 
         .category {
-            margin-bottom: 28px;
+            margin-bottom: 20px;
         }
 
         .category-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 14px;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #000080, #0000cc);
+            padding: 5px 10px;
         }
 
         .category-title {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--text-muted);
-            font-weight: 600;
+            font-size: 0.85rem;
+            color: #ffff00;
+            font-weight: 700;
         }
 
         .category-count {
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            background: var(--bg-tertiary);
-            padding: 4px 8px;
-            border-radius: 6px;
+            font-size: 0.75rem;
+            color: #fff;
+            background: #ff6600;
+            padding: 2px 8px;
+            border: 1px solid #fff;
         }
 
         .options-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
+            gap: 8px;
         }
 
         .option {
             aspect-ratio: 3 / 2;
-            border-radius: 12px;
             overflow: hidden;
             cursor: pointer;
-            border: 2px solid var(--border);
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px outset #999;
             position: relative;
-            background: var(--bg-tertiary);
+            background: #c0c0c0;
         }
 
         .option:hover {
-            border-color: var(--accent);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px -10px var(--accent-glow);
+            border-color: #ff0000;
+            border-style: inset;
         }
 
         .option.selected {
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px var(--accent-glow);
+            border: 3px solid #ff0000;
+            box-shadow: inset 0 0 10px #ff0000;
         }
 
         .option.selected::before {
-            content: '✓';
+            content: 'SELECTED!';
             position: absolute;
-            top: 8px;
-            right: 8px;
-            width: 20px;
-            height: 20px;
-            background: var(--accent);
-            color: white;
-            border-radius: 50%;
-            font-size: 11px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            top: 2px;
+            right: 2px;
+            background: #ff0000;
+            color: #fff;
+            font-size: 8px;
+            padding: 2px 4px;
             z-index: 10;
             font-weight: bold;
+            font-family: 'Comic Sans MS', cursive;
         }
 
         .option img {
@@ -467,7 +489,7 @@
 
         .option.photo img {
             object-fit: cover;
-            object-position: top;
+            object-position: center 25%;
         }
 
         .option-label {
@@ -475,73 +497,78 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.9));
-            color: white;
-            font-size: 0.65rem;
-            padding: 20px 8px 8px;
+            background: #000080;
+            color: #ffff00;
+            font-size: 0.6rem;
+            padding: 3px;
             text-align: center;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         /* Buttons */
         .btn-group {
             display: flex;
-            gap: 10px;
-            margin-top: 24px;
+            gap: 8px;
+            margin-top: 15px;
         }
 
         .btn {
             flex: 1;
-            padding: 16px 24px;
-            border: none;
-            border-radius: 12px;
+            padding: 10px 15px;
+            border: 3px outset #999;
             font-size: 0.9rem;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
-            transition: all 0.2s;
-            font-family: inherit;
+            font-family: 'Comic Sans MS', cursive;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 5px;
         }
 
         .btn-primary {
-            background: var(--accent);
-            color: white;
+            background: linear-gradient(to bottom, #66ff66, #009900);
+            color: #fff;
+            text-shadow: 1px 1px #000;
         }
 
         .btn-primary:hover {
-            background: var(--accent-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px -10px var(--accent-glow);
+            background: linear-gradient(to bottom, #88ff88, #00bb00);
+        }
+
+        .btn-primary:active {
+            border-style: inset;
         }
 
         .btn-secondary {
-            background: var(--bg-tertiary);
-            color: var(--text-secondary);
-            border: 1px solid var(--border);
+            background: linear-gradient(to bottom, #f0f0f0, #c0c0c0);
+            color: #000;
         }
 
         .btn-secondary:hover {
-            background: var(--border);
-            color: var(--text-primary);
+            background: linear-gradient(to bottom, #fff, #ddd);
+        }
+
+        .btn-secondary:active {
+            border-style: inset;
         }
 
         /* Upload */
         .upload-zone {
-            margin-top: 20px;
-            border: 2px dashed var(--border);
-            border-radius: 14px;
-            padding: 28px;
+            margin-top: 15px;
+            border: 3px outset #999;
+            padding: 15px;
             text-align: center;
             cursor: pointer;
-            transition: all 0.2s;
+            background: linear-gradient(to bottom, #f0f0f0, #c0c0c0);
         }
 
         .upload-zone:hover {
-            border-color: var(--accent);
-            background: rgba(59, 130, 246, 0.05);
+            background: linear-gradient(to bottom, #fff, #ddd);
+        }
+
+        .upload-zone:active {
+            border-style: inset;
         }
 
         .upload-zone input {
@@ -549,69 +576,40 @@
         }
 
         .upload-icon {
-            width: 52px;
-            height: 52px;
-            background: var(--bg-tertiary);
-            border-radius: 14px;
+            width: 40px;
+            height: 40px;
+            background: #ffcc00;
+            border: 2px outset #ff9900;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 14px;
-            color: var(--text-muted);
+            margin: 0 auto 10px;
+            color: #000;
         }
 
         .upload-text {
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 6px;
-        }
-
-        .upload-hint {
-            font-size: 0.8rem;
-            color: var(--text-muted);
+            font-weight: 700;
+            color: #cc0000;
+            font-family: 'Comic Sans MS', cursive;
         }
 
         /* Footer */
         footer {
-            background: var(--bg-secondary);
-            border-top: 1px solid var(--border);
-            padding: 40px 48px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            background: linear-gradient(to bottom, #000080, #0000cc);
+            border-top: 4px ridge #ffcc00;
+            padding: 15px;
+            text-align: center;
         }
 
         .footer-left {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 24px;
-        }
-
-        .footer-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.85rem;
-            transition: color 0.2s;
-        }
-
-        .footer-links a:hover {
-            color: var(--text-primary);
+            color: #ffff00;
+            font-size: 0.9rem;
+            font-family: 'Comic Sans MS', cursive;
         }
 
         @media (max-width: 768px) {
-            .nav { padding: 16px 20px; }
-            .nav-links { display: none; }
-            .hero h1 { font-size: 2.5rem; }
-            .hero { padding: 60px 24px 40px; }
-            footer {
-                flex-direction: column;
-                gap: 20px;
-                text-align: center;
-            }
+            .hero h1 { font-size: 1.8rem; }
+            .options-grid { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 </head>
@@ -619,23 +617,12 @@
     <nav class="nav">
         <div class="logo">
             <div class="logo-icon">◇</div>
-            FlagForward
-        </div>
-        <div class="nav-links">
-            <a href="#">About</a>
-            <a href="#">Gallery</a>
-            <a href="#">History</a>
-            <a href="#" class="nav-cta">Share Design</a>
+            Sack the Jack
         </div>
     </nav>
 
     <section class="hero">
-        <div class="badge">
-            <span class="badge-dot"></span>
-            Interactive Design Tool
-        </div>
-        <h1>Reimagine what <span class="gradient">Australia</span> could look like</h1>
-        <p>An interactive exploration of alternative flag designs that reflect our nation's evolving identity, heritage, and values.</p>
+        <p style="color: #333; max-width: 600px; margin: 0 auto; font-size: 1rem;">I was pissed off about seeing the union jack at the winter olympics opening ceremony so I thought - what else can we replace it with?</p>
     </section>
 
     <div class="app-container">
@@ -651,6 +638,7 @@
 
                 <div class="flag-container" id="flagContainer">
                     <img src="australia-full.png" class="flag-base" alt="Australian Flag">
+                    <div class="union-jack-cover"></div>
                     <div class="canton" id="canton" onclick="randomizeFlag()">
                         <div class="canton-placeholder" id="cantonPlaceholder">
                             <span class="question-mark">?</span>
@@ -663,6 +651,26 @@
                 <div class="flag-label">
                     <div class="flag-label-text" id="flagLabel">Australian Flag</div>
                     <div class="flag-label-sub">Click the canton to explore alternatives</div>
+                </div>
+
+                <div class="adjust-panel" id="adjustPanel">
+                    <div class="adjust-title">Adjust Position</div>
+                    <div class="adjust-row">
+                        <span class="adjust-label">Zoom</span>
+                        <input type="range" class="adjust-slider" id="zoomSlider" min="50" max="300" value="85">
+                        <span class="adjust-value" id="zoomValue">100%</span>
+                    </div>
+                    <div class="adjust-row">
+                        <span class="adjust-label">Left/Right</span>
+                        <input type="range" class="adjust-slider" id="xSlider" min="-50" max="50" value="0">
+                        <span class="adjust-value" id="xValue">0%</span>
+                    </div>
+                    <div class="adjust-row">
+                        <span class="adjust-label">Up/Down</span>
+                        <input type="range" class="adjust-slider" id="ySlider" min="-50" max="50" value="0">
+                        <span class="adjust-value" id="yValue">0%</span>
+                    </div>
+                    <button class="adjust-reset" onclick="resetAdjustments()">Reset Position</button>
                 </div>
             </div>
 
@@ -712,14 +720,21 @@
                     <div class="options-grid" id="symbolOptions"></div>
                 </div>
 
+                <div class="category">
+                    <div class="category-header">
+                        <span class="category-title">Sports & Cultural Logos</span>
+                        <span class="category-count" id="logoCount"></span>
+                    </div>
+                    <div class="options-grid" id="logoOptions"></div>
+                </div>
+
                 <label class="upload-zone" for="customImage">
                     <div class="upload-icon">
                         <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
                         </svg>
                     </div>
-                    <div class="upload-text">Upload your own image</div>
-                    <div class="upload-hint">PNG, JPG or GIF up to 5MB</div>
+                    <div class="upload-text">Upload your own</div>
                     <input type="file" id="customImage" accept="image/*">
                 </label>
 
@@ -735,12 +750,7 @@
     </div>
 
     <footer>
-        <div class="footer-left">© 2024 FlagForward. A creative exploration of Australian identity.</div>
-        <div class="footer-links">
-            <a href="#">Privacy</a>
-            <a href="#">Terms</a>
-            <a href="#">Contact</a>
-        </div>
+        <div class="footer-left">Sack the Jack</div>
     </footer>
 
     <script>
@@ -751,7 +761,7 @@
             ],
             australian: [
                 { name: 'Eureka Flag', src: 'eureka.svg' },
-                { name: 'Boxing Kangaroo', src: 'boxing-kangaroo.svg' },
+                { name: 'Boxing Kangaroo', src: 'boxing-kangaroo.png' },
                 { name: 'Pride Flag', src: 'pride.png' }
             ],
             countries: [
@@ -778,42 +788,176 @@
                 { name: 'Wales', src: 'wales.png' }
             ],
             people: [
-                { name: 'Cathy Freeman', src: 'cathy-freeman.jpg' },
-                { name: 'Neville Bonner', src: 'neville-bonner.jpg' },
-                { name: 'Patty Mills', src: 'patty-mills.jpg' },
                 { name: 'Adam Goodes', src: 'adam-goodes.jpg' },
-                { name: 'Travis Head', src: 'travis-head.jpg' },
+                { name: 'Alex de Minaur', src: 'de-minaur.jpg' },
+                { name: 'Anthony Albanese', src: 'anthony-albanese.jpg' },
                 { name: 'Ash Barty', src: 'ash-barty.jpg' },
-                { name: 'Pat Cummins', src: 'pat-cummins.jpg' },
-                { name: 'Steve Smith', src: 'steve-smith.jpg' },
-                { name: 'Ian Thorpe', src: 'ian-thorpe.jpg' },
-                { name: 'Lleyton Hewitt', src: 'lleyton-hewitt.jpg' },
-                { name: 'Eddie Mabo', src: 'eddie-mabo.jpg' },
-                { name: 'Steve Irwin', src: 'steve-irwin.jpg' },
-                { name: 'Hugh Jackman', src: 'hugh-jackman.jpg' },
-                { name: 'Nicole Kidman', src: 'nicole-kidman.jpg' },
-                { name: 'Chris Hemsworth', src: 'chris-hemsworth.jpg' },
+                { name: 'Cameron Smith', src: 'cameron-smith.jpg' },
                 { name: 'Cate Blanchett', src: 'cate-blanchett.jpg' },
+                { name: 'Cathy Freeman', src: 'cathy-freeman.jpg' },
+                { name: 'Chris Hemsworth', src: 'chris-hemsworth.jpg' },
+                { name: 'Christine Anu', src: 'christine-anu.jpg' },
+                { name: 'Daniel Ricciardo', src: 'daniel-ricciardo.jpg' },
+                { name: 'David Warner', src: 'david-warner.jpg' },
+                { name: 'Eddie Mabo', src: 'eddie-mabo.jpg' },
+                { name: 'Ellyse Perry', src: 'ellyse-perry.jpg' },
+                { name: 'Eric Bana', src: 'eric-bana.jpg' },
+                { name: 'Glenn Maxwell', src: 'glenn-maxwell.jpg' },
+                { name: 'Hugh Jackman', src: 'hugh-jackman.jpg' },
+                { name: 'Ian Thorpe', src: 'ian-thorpe.jpg' },
+                { name: 'Iggy Azalea', src: 'iggy-azalea.jpg' },
+                { name: 'INXS', src: 'inxs.jpg' },
+                { name: 'Julia Gillard', src: 'julia-gillard.jpg' },
+                { name: 'Keith Urban', src: 'keith-urban.jpg' },
+                { name: 'Kokkinakis', src: 'kokkinakis.jpg' },
+                { name: 'Kylie Minogue', src: 'kylie-minogue.jpg' },
+                { name: 'Lleyton Hewitt', src: 'lleyton-hewitt.jpg' },
                 { name: 'Margot Robbie', src: 'margot-robbie.jpg' },
-                { name: 'Kylie Minogue', src: 'kylie-minogue.jpg' }
+                { name: 'Mitch Starc', src: 'mitch-starc.jpg' },
+                { name: 'Naomi Watts', src: 'naomi-watts.jpg' },
+                { name: 'Natalie Imbruglia', src: 'natalie-imbruglia.jpg' },
+                { name: 'Neville Bonner', src: 'neville-bonner.jpg' },
+                { name: 'Nick Kyrgios', src: 'nick-kyrgios.jpg' },
+                { name: 'Nicole Kidman', src: 'nicole-kidman.jpg' },
+                { name: 'Olivia Newton-John', src: 'olivia-newton-john.jpg' },
+                { name: 'Oscar Piastri', src: 'oscar-piastri.jpg' },
+                { name: 'Pat Cummins', src: 'pat-cummins.jpg' },
+                { name: 'Patty Mills', src: 'patty-mills.jpg' },
+                { name: 'Russell Crowe', src: 'russell-crowe.jpg' },
+                { name: 'Sam Kerr', src: 'sam-kerr.jpg' },
+                { name: 'Sia', src: 'sia.jpg' },
+                { name: 'Steve Irwin', src: 'steve-irwin.jpg' },
+                { name: 'Steve Smith', src: 'steve-smith.jpg' },
+                { name: 'Tones and I', src: 'tones-and-i.jpg' },
+                { name: 'Travis Head', src: 'travis-head.jpg' },
+                { name: 'Troye Sivan', src: 'troye-sivan.jpg' }
             ],
             symbols: [
                 { name: 'Uluru', src: 'uluru.jpg' },
                 { name: 'Sydney Opera House', src: 'sydney-opera-house.jpg' }
+            ],
+            logos: [
+                { name: 'Wallabies', src: 'wallabies-logo.png' },
+                { name: 'Cricket Australia', src: 'cricket-australia-logo.png' },
+                { name: 'AFL', src: 'afl-logo.png' },
+                { name: 'NRL', src: 'nrl-logo.png' },
+                { name: 'Netball Australia', src: 'netball-australia-logo.png' },
+                { name: 'Australian Olympic', src: 'australian-olympic-logo.png' },
+                { name: 'Adelaide Crows', src: 'afl-adelaide.png' },
+                { name: 'Brisbane Lions', src: 'afl-brisbane.png' },
+                { name: 'Carlton Blues', src: 'afl-carlton.png' },
+                { name: 'Collingwood', src: 'afl-collingwood.png' },
+                { name: 'Essendon', src: 'afl-essendon.png' },
+                { name: 'Fremantle', src: 'afl-fremantle.png' },
+                { name: 'Geelong Cats', src: 'afl-geelong.png' },
+                { name: 'Gold Coast Suns', src: 'afl-goldcoast.png' },
+                { name: 'GWS Giants', src: 'afl-gws.png' },
+                { name: 'Hawthorn', src: 'afl-hawthorn.png' },
+                { name: 'Melbourne', src: 'afl-melbourne.png' },
+                { name: 'North Melbourne', src: 'afl-northmelbourne.png' },
+                { name: 'Port Adelaide', src: 'afl-portadelaide.png' },
+                { name: 'Richmond', src: 'afl-richmond.png' },
+                { name: 'St Kilda', src: 'afl-stkilda.png' },
+                { name: 'Sydney Swans', src: 'afl-sydney.png' },
+                { name: 'West Coast Eagles', src: 'afl-westcoast.png' },
+                { name: 'Western Bulldogs', src: 'afl-bulldogs.png' }
             ]
         };
 
         let currentSelection = null;
+        let adjustments = { zoom: 85, x: 0, y: 0 };
+
+        // Adjustment controls
+        const zoomSlider = document.getElementById('zoomSlider');
+        const xSlider = document.getElementById('xSlider');
+        const ySlider = document.getElementById('ySlider');
+        const zoomValue = document.getElementById('zoomValue');
+        const xValue = document.getElementById('xValue');
+        const yValue = document.getElementById('yValue');
+        const adjustPanel = document.getElementById('adjustPanel');
+
+        function applyAdjustments() {
+            const cantonImg = document.getElementById('cantonImage');
+            if (cantonImg.style.display !== 'none') {
+                const scale = adjustments.zoom / 100;
+                const xPos = 50 + adjustments.x;
+                const yPos = 25 + adjustments.y;
+
+                if (cantonImg.classList.contains('logo')) {
+                    // Logos use transform scale
+                    cantonImg.style.transform = `scale(${scale})`;
+                    cantonImg.style.width = '100%';
+                    cantonImg.style.height = '100%';
+                    cantonImg.style.minWidth = '';
+                    cantonImg.style.minHeight = '';
+                    cantonImg.style.left = '';
+                    cantonImg.style.top = '';
+                } else if (cantonImg.classList.contains('photo')) {
+                    // Photos: fill full height, left-aligned by default
+                    cantonImg.style.position = 'absolute';
+                    cantonImg.style.height = `${scale * 100}%`;
+                    cantonImg.style.width = 'auto';
+                    cantonImg.style.minWidth = '';
+                    cantonImg.style.minHeight = '100%';
+                    cantonImg.style.left = `${adjustments.x}%`;
+                    cantonImg.style.top = '50%';
+                    cantonImg.style.transform = `translateY(calc(-50% + ${adjustments.y}%))`;
+                    cantonImg.style.objectFit = 'cover';
+                }
+                cantonImg.style.objectPosition = `${xPos}% ${yPos}%`;
+            }
+        }
+
+        function resetAdjustments() {
+            adjustments = { zoom: 85, x: 0, y: 0 };
+            zoomSlider.value = 85;
+            xSlider.value = 0;
+            ySlider.value = 0;
+            zoomValue.textContent = '85%';
+            xValue.textContent = '0%';
+            yValue.textContent = '0%';
+
+            const cantonImg = document.getElementById('cantonImage');
+            cantonImg.style.transform = '';
+            cantonImg.style.width = '100%';
+            cantonImg.style.height = '100%';
+            cantonImg.style.minWidth = '';
+            cantonImg.style.minHeight = '';
+            cantonImg.style.left = '';
+            cantonImg.style.top = '';
+            cantonImg.style.position = '';
+            cantonImg.style.objectFit = '';
+            applyAdjustments();
+        }
+
+        zoomSlider.addEventListener('input', (e) => {
+            adjustments.zoom = parseInt(e.target.value);
+            zoomValue.textContent = adjustments.zoom + '%';
+            applyAdjustments();
+        });
+
+        xSlider.addEventListener('input', (e) => {
+            adjustments.x = parseInt(e.target.value);
+            xValue.textContent = adjustments.x + '%';
+            applyAdjustments();
+        });
+
+        ySlider.addEventListener('input', (e) => {
+            adjustments.y = parseInt(e.target.value);
+            yValue.textContent = adjustments.y + '%';
+            applyAdjustments();
+        });
 
         function renderOptions() {
             renderCategory('indigenousOptions', options.indigenous, 'indigenousCount');
             renderCategory('ausOptions', options.australian, 'ausCount');
-            renderCategory('peopleOptions', options.people, 'peopleCount', true);
+            renderCategory('peopleOptions', options.people, 'peopleCount', 'photo');
             renderCategory('countryOptions', options.countries, 'countryCount');
-            renderCategory('symbolOptions', options.symbols, 'symbolCount', true);
+            renderCategory('symbolOptions', options.symbols, 'symbolCount', 'photo');
+            renderCategory('logoOptions', options.logos, 'logoCount', 'logo');
         }
 
-        function renderCategory(containerId, items, countId, isPhoto = false) {
+        function renderCategory(containerId, items, countId, itemType = null) {
             const container = document.getElementById(containerId);
             const countEl = document.getElementById(countId);
             container.innerHTML = '';
@@ -822,8 +966,8 @@
 
             items.forEach((item) => {
                 const div = document.createElement('div');
-                div.className = isPhoto ? 'option photo' : 'option';
-                div.onclick = () => selectOption(item, div);
+                div.className = itemType ? `option ${itemType}` : 'option';
+                div.onclick = () => selectOption(item, div, itemType);
 
                 const img = document.createElement('img');
                 img.src = item.src;
@@ -841,11 +985,12 @@
             });
         }
 
-        function selectOption(item, element) {
+        function selectOption(item, element, itemType = null) {
             document.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
             element.classList.add('selected');
 
             currentSelection = item;
+            currentSelection.type = itemType;
 
             const placeholder = document.getElementById('cantonPlaceholder');
             const cantonImg = document.getElementById('cantonImage');
@@ -855,12 +1000,22 @@
             cantonImg.style.display = 'block';
             cantonImg.src = item.src;
 
-            // Apply photo cropping for people/landmarks (jpg files)
-            if (item.src.endsWith('.jpg')) {
+            // Remove previous classes
+            cantonImg.classList.remove('photo', 'logo');
+
+            // Apply appropriate styling based on type
+            if (itemType === 'logo') {
+                cantonImg.classList.add('logo');
+                adjustPanel.classList.add('visible');
+            } else if (itemType === 'photo' || item.src.endsWith('.jpg')) {
                 cantonImg.classList.add('photo');
+                adjustPanel.classList.add('visible');
             } else {
-                cantonImg.classList.remove('photo');
+                adjustPanel.classList.remove('visible');
             }
+
+            // Reset adjustments for new selection
+            resetAdjustments();
 
             label.textContent = `With ${item.name}`;
             document.querySelector('.flag-label-sub').textContent = 'Click the canton to randomize';
@@ -876,17 +1031,22 @@
 
             placeholder.style.display = 'flex';
             cantonImg.style.display = 'none';
+            cantonImg.style.transform = '';
+            cantonImg.style.objectPosition = '';
             label.textContent = 'Australian Flag';
+            adjustPanel.classList.remove('visible');
+            resetAdjustments();
             document.querySelector('.flag-label-sub').textContent = 'Click the canton to explore alternatives';
         }
 
         function randomizeFlag() {
             const allOptions = [
-                ...options.indigenous,
-                ...options.australian,
-                ...options.countries,
-                ...options.people,
-                ...options.symbols
+                ...options.indigenous.map(o => ({...o, type: null})),
+                ...options.australian.map(o => ({...o, type: null})),
+                ...options.countries.map(o => ({...o, type: null})),
+                ...options.people.map(o => ({...o, type: 'photo'})),
+                ...options.symbols.map(o => ({...o, type: 'photo'})),
+                ...options.logos.map(o => ({...o, type: 'logo'}))
             ];
 
             const randomItem = allOptions[Math.floor(Math.random() * allOptions.length)];
@@ -909,13 +1069,21 @@
             cantonImg.style.display = 'block';
             cantonImg.src = randomItem.src;
 
-            // Apply photo cropping for people/landmarks (jpg files)
-            if (randomItem.src.endsWith('.jpg')) {
+            // Remove previous classes
+            cantonImg.classList.remove('photo', 'logo');
+
+            // Apply appropriate styling based on type
+            if (randomItem.type === 'logo') {
+                cantonImg.classList.add('logo');
+                adjustPanel.classList.add('visible');
+            } else if (randomItem.type === 'photo') {
                 cantonImg.classList.add('photo');
+                adjustPanel.classList.add('visible');
             } else {
-                cantonImg.classList.remove('photo');
+                adjustPanel.classList.remove('visible');
             }
 
+            resetAdjustments();
             label.textContent = `With ${randomItem.name}`;
             document.querySelector('.flag-label-sub').textContent = 'Click the canton to randomize again';
         }
@@ -939,6 +1107,8 @@
                     currentSelection = { name: 'Custom Image', dataUrl: event.target.result };
 
                     document.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+                    adjustPanel.classList.add('visible');
+                    resetAdjustments();
                 };
                 reader.readAsDataURL(file);
             }
@@ -955,36 +1125,70 @@
             baseFlag.onload = function() {
                 ctx.drawImage(baseFlag, 0, 0, 1200, 600);
 
+                // Draw blue overlay to cover Union Jack (52.5%)
+                ctx.fillStyle = '#012169';
+                ctx.fillRect(0, 0, 630, 315);
+
                 const cantonImg = document.getElementById('cantonImage');
                 if (cantonImg.style.display !== 'none') {
                     const img = new Image();
                     img.crossOrigin = 'anonymous';
                     img.onload = function() {
-                        const cantonWidth = 606;  // 50.5% of 1200
-                        const cantonHeight = 303; // 50.5% of 600
+                        const cantonWidth = 600;  // 50% of 1200
+                        const cantonHeight = 300; // 50% of 600
 
-                        // Check if it's a photo that needs cropping
                         const isPhoto = cantonImg.classList.contains('photo');
+                        const isLogo = cantonImg.classList.contains('logo');
 
-                        if (isPhoto) {
-                            // object-fit: cover with object-position: top
+                        if (isLogo) {
+                            // object-fit: contain with zoom - scale to fit, centered
+                            const scale = adjustments.zoom / 100;
+                            const basePadding = cantonWidth * 0.1;
+                            const padding = basePadding / scale;
+                            const availWidth = (cantonWidth - (basePadding * 2)) * scale;
+                            const availHeight = (cantonHeight - (basePadding * 2)) * scale;
+
+                            const imgRatio = img.width / img.height;
+                            const availRatio = availWidth / availHeight;
+
+                            let dw, dh;
+                            if (imgRatio > availRatio) {
+                                dw = availWidth;
+                                dh = dw / imgRatio;
+                            } else {
+                                dh = availHeight;
+                                dw = dh * imgRatio;
+                            }
+
+                            // Center with position adjustments
+                            const dx = (cantonWidth - dw) / 2 + (adjustments.x * cantonWidth / 100);
+                            const dy = (cantonHeight - dh) / 2 + (adjustments.y * cantonHeight / 100);
+
+                            ctx.drawImage(img, 0, 0, img.width, img.height, dx, dy, dw, dh);
+                        } else if (isPhoto) {
+                            // Apply zoom and position adjustments
+                            const scale = adjustments.zoom / 100;
+                            const xPos = (50 + adjustments.x) / 100;
+                            const yPos = (25 + adjustments.y) / 100;
+
                             const imgRatio = img.width / img.height;
                             const cantonRatio = cantonWidth / cantonHeight;
 
-                            let sx, sy, sw, sh;
+                            let sw, sh;
                             if (imgRatio > cantonRatio) {
-                                // Image is wider - crop sides
-                                sh = img.height;
+                                sh = img.height / scale;
                                 sw = sh * cantonRatio;
-                                sx = (img.width - sw) / 2;
-                                sy = 0; // top aligned
                             } else {
-                                // Image is taller - crop bottom
-                                sw = img.width;
+                                sw = img.width / scale;
                                 sh = sw / cantonRatio;
-                                sx = 0;
-                                sy = 0; // top aligned
                             }
+
+                            // Calculate source position based on adjustments
+                            const maxSx = img.width - sw;
+                            const maxSy = img.height - sh;
+                            const sx = Math.max(0, Math.min(maxSx, maxSx * xPos));
+                            const sy = Math.max(0, Math.min(maxSy, maxSy * yPos));
+
                             ctx.drawImage(img, sx, sy, sw, sh, 0, 0, cantonWidth, cantonHeight);
                         } else {
                             // object-fit: fill - stretch to fit
@@ -1005,7 +1209,7 @@
 
         function triggerDownload(canvas) {
             const link = document.createElement('a');
-            link.download = 'flagforward-design.png';
+            link.download = 'sack-the-jack.png';
             link.href = canvas.toDataURL('image/png');
             link.click();
         }
