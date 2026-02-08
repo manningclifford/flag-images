@@ -327,6 +327,27 @@
             border-style: inset;
         }
 
+        .stretch-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            color: #000080;
+            font-weight: 700;
+        }
+
+        .stretch-label input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .adjust-slider:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
         .canton-placeholder {
             width: 100%;
             height: 100%;
@@ -553,46 +574,6 @@
             border-style: inset;
         }
 
-        /* Upload */
-        .upload-zone {
-            margin-top: 15px;
-            border: 3px outset #999;
-            padding: 15px;
-            text-align: center;
-            cursor: pointer;
-            background: linear-gradient(to bottom, #f0f0f0, #c0c0c0);
-        }
-
-        .upload-zone:hover {
-            background: linear-gradient(to bottom, #fff, #ddd);
-        }
-
-        .upload-zone:active {
-            border-style: inset;
-        }
-
-        .upload-zone input {
-            display: none;
-        }
-
-        .upload-icon {
-            width: 40px;
-            height: 40px;
-            background: #ffcc00;
-            border: 2px outset #ff9900;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 10px;
-            color: #000;
-        }
-
-        .upload-text {
-            font-weight: 700;
-            color: #cc0000;
-            font-family: 'Comic Sans MS', cursive;
-        }
-
         /* Footer */
         footer {
             background: linear-gradient(to bottom, #000080, #0000cc);
@@ -670,6 +651,12 @@
                         <input type="range" class="adjust-slider" id="ySlider" min="-50" max="50" value="0">
                         <span class="adjust-value" id="yValue">0%</span>
                     </div>
+                    <div class="adjust-row">
+                        <label class="stretch-label">
+                            <input type="checkbox" id="stretchCheckbox" onchange="toggleStretch()">
+                            <span>Stretch to fill</span>
+                        </label>
+                    </div>
                     <button class="adjust-reset" onclick="resetAdjustments()">Reset Position</button>
                 </div>
             </div>
@@ -698,6 +685,14 @@
 
                 <div class="category">
                     <div class="category-header">
+                        <span class="category-title">Aussie Icons</span>
+                        <span class="category-count" id="symbolCount"></span>
+                    </div>
+                    <div class="options-grid" id="symbolOptions"></div>
+                </div>
+
+                <div class="category">
+                    <div class="category-header">
                         <span class="category-title">Notable Australians</span>
                         <span class="category-count" id="peopleCount"></span>
                     </div>
@@ -714,29 +709,11 @@
 
                 <div class="category">
                     <div class="category-header">
-                        <span class="category-title">Landmarks</span>
-                        <span class="category-count" id="symbolCount"></span>
-                    </div>
-                    <div class="options-grid" id="symbolOptions"></div>
-                </div>
-
-                <div class="category">
-                    <div class="category-header">
                         <span class="category-title">Sports & Cultural Logos</span>
                         <span class="category-count" id="logoCount"></span>
                     </div>
                     <div class="options-grid" id="logoOptions"></div>
                 </div>
-
-                <label class="upload-zone" for="customImage">
-                    <div class="upload-icon">
-                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
-                        </svg>
-                    </div>
-                    <div class="upload-text">Upload your own</div>
-                    <input type="file" id="customImage" accept="image/*">
-                </label>
 
                 <div class="btn-group">
                     <button class="btn btn-secondary" onclick="resetFlag()">Reset</button>
@@ -833,8 +810,14 @@
                 { name: 'Troye Sivan', src: 'troye-sivan.jpg' }
             ],
             symbols: [
-                { name: 'Uluru', src: 'uluru.jpg' },
-                { name: 'Sydney Opera House', src: 'sydney-opera-house.jpg' }
+                { name: 'Bluey', src: 'bluey.jpg' },
+                { name: 'Bin Chicken', src: 'ibis.jpg' },
+                { name: 'MasterChef Clock', src: 'masterchef.jpg' },
+                { name: 'Medicare Card', src: 'medicare-logo.jpg' },
+                { name: 'Big Pineapple', src: 'big-pineapple.jpg' },
+                { name: 'Big Merino', src: 'big-merino.jpg' },
+                { name: 'Big Lobster', src: 'big-lobster.jpg' },
+                { name: 'Holden', src: 'holden-logo.png' }
             ],
             logos: [
                 { name: 'Wallabies', src: 'wallabies-logo.png' },
@@ -865,7 +848,7 @@
         };
 
         let currentSelection = null;
-        let adjustments = { zoom: 85, x: 0, y: 0 };
+        let adjustments = { zoom: 85, x: 0, y: 0, stretch: false };
 
         // Adjustment controls
         const zoomSlider = document.getElementById('zoomSlider');
@@ -883,7 +866,19 @@
                 const xPos = 50 + adjustments.x;
                 const yPos = 25 + adjustments.y;
 
-                if (cantonImg.classList.contains('logo')) {
+                if (adjustments.stretch) {
+                    // Stretch to fill - ignore aspect ratio
+                    cantonImg.style.position = '';
+                    cantonImg.style.width = '100%';
+                    cantonImg.style.height = '100%';
+                    cantonImg.style.minWidth = '';
+                    cantonImg.style.minHeight = '';
+                    cantonImg.style.left = '';
+                    cantonImg.style.top = '';
+                    cantonImg.style.transform = '';
+                    cantonImg.style.objectFit = 'fill';
+                    cantonImg.style.objectPosition = '';
+                } else if (cantonImg.classList.contains('logo')) {
                     // Logos use transform scale
                     cantonImg.style.transform = `scale(${scale})`;
                     cantonImg.style.width = '100%';
@@ -892,6 +887,8 @@
                     cantonImg.style.minHeight = '';
                     cantonImg.style.left = '';
                     cantonImg.style.top = '';
+                    cantonImg.style.objectFit = 'contain';
+                    cantonImg.style.objectPosition = `${xPos}% ${yPos}%`;
                 } else if (cantonImg.classList.contains('photo')) {
                     // Photos: fill full height, left-aligned by default
                     cantonImg.style.position = 'absolute';
@@ -903,19 +900,42 @@
                     cantonImg.style.top = '50%';
                     cantonImg.style.transform = `translateY(calc(-50% + ${adjustments.y}%))`;
                     cantonImg.style.objectFit = 'cover';
+                    cantonImg.style.objectPosition = `${xPos}% ${yPos}%`;
                 }
-                cantonImg.style.objectPosition = `${xPos}% ${yPos}%`;
             }
         }
 
+        function toggleStretch() {
+            const checkbox = document.getElementById('stretchCheckbox');
+            adjustments.stretch = checkbox.checked;
+
+            // Disable/enable other sliders when stretch is on
+            const zoomSlider = document.getElementById('zoomSlider');
+            const xSlider = document.getElementById('xSlider');
+            const ySlider = document.getElementById('ySlider');
+
+            zoomSlider.disabled = adjustments.stretch;
+            xSlider.disabled = adjustments.stretch;
+            ySlider.disabled = adjustments.stretch;
+
+            applyAdjustments();
+        }
+
         function resetAdjustments() {
-            adjustments = { zoom: 85, x: 0, y: 0 };
+            adjustments = { zoom: 85, x: 0, y: 0, stretch: false };
             zoomSlider.value = 85;
             xSlider.value = 0;
             ySlider.value = 0;
             zoomValue.textContent = '85%';
             xValue.textContent = '0%';
             yValue.textContent = '0%';
+
+            // Reset stretch checkbox
+            const stretchCheckbox = document.getElementById('stretchCheckbox');
+            stretchCheckbox.checked = false;
+            zoomSlider.disabled = false;
+            xSlider.disabled = false;
+            ySlider.disabled = false;
 
             const cantonImg = document.getElementById('cantonImage');
             cantonImg.style.transform = '';
@@ -1040,16 +1060,37 @@
         }
 
         function randomizeFlag() {
-            const allOptions = [
-                ...options.indigenous.map(o => ({...o, type: null})),
-                ...options.australian.map(o => ({...o, type: null})),
-                ...options.countries.map(o => ({...o, type: null})),
-                ...options.people.map(o => ({...o, type: 'photo'})),
-                ...options.symbols.map(o => ({...o, type: 'photo'})),
-                ...options.logos.map(o => ({...o, type: 'logo'}))
-            ];
+            // Biased selection towards aussie icons, indigenous flags, other flags, some notable australians
+            // Only Greek and Chinese from country flags
+            const randomPool = [];
 
-            const randomItem = allOptions[Math.floor(Math.random() * allOptions.length)];
+            // Indigenous flags - high weight (add 3x)
+            for (let i = 0; i < 3; i++) {
+                randomPool.push(...options.indigenous.map(o => ({...o, type: null})));
+            }
+
+            // Other Australian flags - high weight (add 3x)
+            for (let i = 0; i < 3; i++) {
+                randomPool.push(...options.australian.map(o => ({...o, type: null})));
+            }
+
+            // Aussie Icons - high weight (add 3x)
+            for (let i = 0; i < 3; i++) {
+                randomPool.push(...options.symbols.map(o => ({...o, type: 'photo'})));
+            }
+
+            // Notable Australians - medium weight (add 1x)
+            randomPool.push(...options.people.map(o => ({...o, type: 'photo'})));
+
+            // Only Greek and Chinese from country flags
+            const allowedCountries = ['Greece', 'China'];
+            const filteredCountries = options.countries.filter(c => allowedCountries.includes(c.name));
+            randomPool.push(...filteredCountries.map(o => ({...o, type: null})));
+
+            // Sports logos - low weight (add 1x)
+            randomPool.push(...options.logos.map(o => ({...o, type: 'logo'})));
+
+            const randomItem = randomPool[Math.floor(Math.random() * randomPool.length)];
 
             document.querySelectorAll('.option').forEach(opt => {
                 opt.classList.remove('selected');
@@ -1088,32 +1129,6 @@
             document.querySelector('.flag-label-sub').textContent = 'Click the canton to randomize again';
         }
 
-        document.getElementById('customImage').addEventListener('change', function(e) {
-            const file = e.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(event) {
-                    const placeholder = document.getElementById('cantonPlaceholder');
-                    const cantonImg = document.getElementById('cantonImage');
-                    const label = document.getElementById('flagLabel');
-
-                    placeholder.style.display = 'none';
-                    cantonImg.style.display = 'block';
-                    cantonImg.src = event.target.result;
-                    cantonImg.classList.add('photo'); // Custom uploads use cover/crop
-                    label.textContent = 'With Custom Image';
-                    document.querySelector('.flag-label-sub').textContent = 'Your uploaded design';
-
-                    currentSelection = { name: 'Custom Image', dataUrl: event.target.result };
-
-                    document.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
-                    adjustPanel.classList.add('visible');
-                    resetAdjustments();
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-
         function downloadFlag() {
             const canvas = document.createElement('canvas');
             const ctx = canvas.getContext('2d');
@@ -1139,8 +1154,12 @@
 
                         const isPhoto = cantonImg.classList.contains('photo');
                         const isLogo = cantonImg.classList.contains('logo');
+                        const isStretch = adjustments.stretch;
 
-                        if (isLogo) {
+                        if (isStretch) {
+                            // Stretch to fill - just draw the image to fill the canton
+                            ctx.drawImage(img, 0, 0, cantonWidth, cantonHeight);
+                        } else if (isLogo) {
                             // object-fit: contain with zoom - scale to fit, centered
                             const scale = adjustments.zoom / 100;
                             const basePadding = cantonWidth * 0.1;
