@@ -638,22 +638,22 @@
                     <div class="adjust-title">Adjust Position</div>
                     <div class="adjust-row">
                         <span class="adjust-label">Zoom</span>
-                        <input type="range" class="adjust-slider" id="zoomSlider" min="50" max="300" value="85">
+                        <input type="range" class="adjust-slider" id="zoomSlider" min="50" max="300" value="85" disabled>
                         <span class="adjust-value" id="zoomValue">100%</span>
                     </div>
                     <div class="adjust-row">
                         <span class="adjust-label">Left/Right</span>
-                        <input type="range" class="adjust-slider" id="xSlider" min="-50" max="50" value="0">
+                        <input type="range" class="adjust-slider" id="xSlider" min="-50" max="50" value="0" disabled>
                         <span class="adjust-value" id="xValue">0%</span>
                     </div>
                     <div class="adjust-row">
                         <span class="adjust-label">Up/Down</span>
-                        <input type="range" class="adjust-slider" id="ySlider" min="-50" max="50" value="0">
+                        <input type="range" class="adjust-slider" id="ySlider" min="-50" max="50" value="0" disabled>
                         <span class="adjust-value" id="yValue">0%</span>
                     </div>
                     <div class="adjust-row">
                         <label class="stretch-label">
-                            <input type="checkbox" id="stretchCheckbox" onchange="toggleStretch()">
+                            <input type="checkbox" id="stretchCheckbox" checked onchange="toggleStretch()">
                             <span>Stretch to fill</span>
                         </label>
                     </div>
@@ -848,7 +848,7 @@
         };
 
         let currentSelection = null;
-        let adjustments = { zoom: 85, x: 0, y: 0, stretch: false };
+        let adjustments = { zoom: 85, x: 0, y: 0, stretch: true };
 
         // Adjustment controls
         const zoomSlider = document.getElementById('zoomSlider');
@@ -922,7 +922,7 @@
         }
 
         function resetAdjustments() {
-            adjustments = { zoom: 85, x: 0, y: 0, stretch: false };
+            adjustments = { zoom: 85, x: 0, y: 0, stretch: true };
             zoomSlider.value = 85;
             xSlider.value = 0;
             ySlider.value = 0;
@@ -932,10 +932,10 @@
 
             // Reset stretch checkbox
             const stretchCheckbox = document.getElementById('stretchCheckbox');
-            stretchCheckbox.checked = false;
-            zoomSlider.disabled = false;
-            xSlider.disabled = false;
-            ySlider.disabled = false;
+            stretchCheckbox.checked = true;
+            zoomSlider.disabled = true;
+            xSlider.disabled = true;
+            ySlider.disabled = true;
 
             const cantonImg = document.getElementById('cantonImage');
             cantonImg.style.transform = '';
